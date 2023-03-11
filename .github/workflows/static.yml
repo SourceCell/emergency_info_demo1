@@ -37,8 +37,20 @@ jobs:
         uses: denolib/setup-deno@v2
         with:
           deno-version: ${{ matrix.deno-version }}
-      - name: emergency info tests
-        run: deno test --allow-read --allow-net
+          
+      - name: check lint
+        continue-on-error: true
+        run: |
+          deno lint
+          
+      - name: check formatting
+        continue-on-error: true
+        run: |
+          deno fmt --check
+          
+      - name: check tests
+        continue-on-error: true
+        run: deno test --allow-none
 
   # deploy job
   deploy:

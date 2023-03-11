@@ -9,7 +9,7 @@ function getContact() {
 }
 
 function getCopyrightDate() {
-  return "2023_fakeBug";
+  return "Copyright 2023";
 }
 
 export { getContact, getCopyrightDate, getWho };

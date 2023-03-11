@@ -1,6 +1,9 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<!--<script src='src/site_info_api.js'> type='text/javascript'></script>-->
+
+
 <title>Emergency Info</title>
 
 <style>
@@ -18,7 +21,7 @@
   <p>FEMA Alert info and app: <a href="https://www.ready.gov/alerts">https://www.ready.gov/alerts</a></p>
 
   <hr>
-  <h2>Details by zip</h2>
+  <h2>Details by Zip Code</h2>
   <hr>
     <p>zip: zip1; town: town1; evac: now; alerts: fire, chemical; notes: rapidly changing
   <hr>
@@ -28,9 +31,26 @@
 
   <hr>
   <hr>
-  <p>by tech engineers volunteering to help in an emergency.
-  info@sourcecell.com</p>
+
+  <div id="who_div_id">(who tbd)></div>
+  <div id="contact_div_id">(contact tbd)></div>
+  <div id="copyright_div_id">(copyright date tbd)></div>
+
+  <script type=module>
+
+    import {getWho, getContact, getCopyrightDate} from './src/site_info.js';
+
+    window.who_div_id.innerHTML = getWho();
+    window.contact_div_id.innerHTML = getContact();
+    window.copyright_div_id.innerHTML = getCopyrightDate();
+  </script>
+
+  <hr>
+  <hr>
+
   <h2>NOT a real emergency. Only a demo of what could be done quickly.</h2>
+
+  <hr>
   <hr>
 
 <script>

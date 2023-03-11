@@ -1,10 +1,12 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Simple workflow for deploying static content to GitHub Pages. Added running unit tests.
 name: Deploy static content to Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+  pull_request:
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,7 +23,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        deno-version: [1.21.0]
+
+    steps:
+      - name: Git Checkout graph
+        uses: actions/checkout@v2
+      - name: Use Deno Version ${{ matrix.deno-version }}
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno-version }}
+      - name: emergency info tests
+        run: deno test --allow-read --allow-net
+
+  # deploy job
   deploy:
     environment:
       name: github-pages
@@ -40,3 +59,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        

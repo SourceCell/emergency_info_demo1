@@ -9,7 +9,7 @@ function getContact() {
 }
 
 function getCopyrightDate() {
-  return "2023_BugForDemo";
+  return "2023_BugForDemoAttemptToFixDemo";
 }
 
 export { getContact, getCopyrightDate, getWho };

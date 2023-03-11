@@ -31,7 +31,7 @@ jobs:
         deno-version: [1.21.0]
 
     steps:
-      - name: Git Checkout graph
+      - name: Git Checkout code
         uses: actions/checkout@v2
       - name: Use Deno Version ${{ matrix.deno-version }}
         uses: denolib/setup-deno@v2

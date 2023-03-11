@@ -9,7 +9,7 @@ function getContact() {
 }
 
 function getCopyrightDate() {
-  return "Copyright 2023_fakeBug";
+  return "Copyright 2023 Tech Engineers";
 }
 
 export { getContact, getCopyrightDate, getWho };

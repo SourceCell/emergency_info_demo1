@@ -16,5 +16,5 @@ Deno.test("get contact info", () => {
 
 Deno.test("get copyright date", () => {
   const date = getCopyrightDate();
-  assertEquals(date, "_2023");
+  assertEquals(date, "2023");
 });

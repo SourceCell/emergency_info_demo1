@@ -52,8 +52,9 @@ jobs:
         continue-on-error: false
         run: deno test --allow-none
 
-  # deploy job
+  # deploy job, if test job passed
   deploy:
+    needs: test
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

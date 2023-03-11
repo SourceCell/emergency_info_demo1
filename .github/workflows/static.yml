@@ -49,7 +49,7 @@ jobs:
           deno fmt --check
           
       - name: check tests
-        continue-on-error: true
+        continue-on-error: false
         run: deno test --allow-none
 
   # deploy job

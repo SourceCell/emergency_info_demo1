@@ -15,6 +15,6 @@ Deno.test("get contact info", () => {
 });
 
 Deno.test("get copyright date", () => {
-  const date = getCopyrightDate();
+  var date = getCopyrightDate();
   assertEquals(date, "Copyright 2023 Tech Engineers");
 });

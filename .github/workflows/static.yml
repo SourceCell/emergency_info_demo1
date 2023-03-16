@@ -29,12 +29,6 @@ jobs:
     strategy:
       matrix:
         deno-version: [1.21.0]
-
-    name: Display lscpu - ${{matrix.name}}
-    runs-on: ${{matrix.runs-on}}
-    steps:
-      - name: Run lscpu
-        run: lscpu
         
     steps:
       - name: Git Checkout code
